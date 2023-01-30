@@ -82,9 +82,7 @@ int main(int argc, char *argv[]) {
     player->setVolume(75);
     player->setMedia(QUrl::fromLocalFile(paint.getPath()));
 
-    QWidget::connect(&paint, &QPushButton::clicked, [player](){
-        player->play();
-    });
+    QWidget::connect(&paint, &QPushButton::clicked, player, &QMediaPlayer::play);
 
     appWindow.setFixedSize (200, 250);
     appWindow.move (2000, 500);
